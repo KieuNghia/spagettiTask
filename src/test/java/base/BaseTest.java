@@ -11,9 +11,7 @@ import org.testng.annotations.BeforeTest;
 
 import java.sql.DriverManager;
 
-/**
- * Created by nghia on 28.06.2015.
- */
+
 public class BaseTest {
     protected WebDriver driver;
     protected GmailInboxSteps gmailInboxSteps;
@@ -25,6 +23,7 @@ public class BaseTest {
     public void setUp() {
         WebDriverFactory webDriverFactory = new WebDriverFactory();
         driver = webDriverFactory.getDriver("firefox");
+        driver.manage().window().maximize();
         driver.get(Constants.URL);
         gmailLoginSteps = new GmailLoginSteps(driver);
 

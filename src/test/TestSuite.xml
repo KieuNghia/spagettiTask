@@ -1,0 +1,30 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+    <suite name="TestAll" parallel="false">
+    <listeners>
+        <listener class-name="org.uncommons.reportng.HTMLReporter"/>
+        <listener class-name="org.uncommons.reportng.JUnitXMLReporter"/>
+    </listeners>
+        <test name="FileSenderTest">
+            <classes>
+                <class name="tests.FileSenderTest"/>
+            </classes>
+        </test>
+        <test name="ThemeChangeTest">
+            <classes>
+                <class name="tests.ThemeChangeTest"/>
+
+            </classes>
+        </test>
+        <test name="DragAndDropTest">
+            <classes>
+                <class name="tests.DragAndDropTest"/>
+            </classes>
+        </test>
+
+        <test name="SpamTest">
+            <classes>
+                <class name="tests.SpamTest"/>
+            </classes>
+        </test>
+</suite>

@@ -11,15 +11,14 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.testng.Assert;
 
 import java.awt.event.WindowAdapter;
 
 import static com.epam.kiieu.utils.waiters.Waiters.*;
 import static org.openqa.selenium.By.xpath;
 
-/**
- * Created by nghia on 28.06.2015.
- */
+
 public class GmailInboxSteps extends BaseStep {
 
     public GmailInboxSteps(WebDriver driver) {
@@ -101,8 +100,9 @@ public class GmailInboxSteps extends BaseStep {
         return this;
     }
 
-    public boolean verifyLetterPresent() {
-        return VerifyHelpers.isElementPresent(By.xpath("//span/b[text()='" + Constants.LETTER_THEME + "']"), driver);
+    public void verifyLetterPresent() {
+
+       Assert.assertTrue(VerifyHelpers.isElementPresent(By.xpath("//span/b[text()='" + Constants.LETTER_THEME + "']"), driver), "Message absent");
     }
 
 

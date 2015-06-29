@@ -5,13 +5,13 @@ import com.epam.kiieu.utils.steps.BaseStep;
 import com.epam.kiieu.utils.waiters.Waiters;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Wait;
+import org.testng.Assert;
 
 import java.util.List;
 import java.util.Random;
 
-/**
- * Created by nghia on 28.06.2015.
- */
+
 public class GmailThemeSteps extends BaseStep {
 
     public GmailThemeSteps (WebDriver driver){
@@ -19,13 +19,13 @@ public class GmailThemeSteps extends BaseStep {
     }
 
     public GmailThemeSteps changeTheme(){
+        Waiters.waitForElementIsVisible(gmailThemePage.getDarkTheme(), driver);
         gmailThemePage.getDarkTheme().click();
-        gmailThemePage.getLightTheme().click();
         return this;
      }
 
-    public boolean verifySuccessMessage(){
-        return gmailThemePage.getThemeChangedPopup().isDisplayed();
+    public void verifySuccessMessage(){
+        Assert.assertTrue(gmailThemePage.getThemeChangedPopup().isDisplayed(), "Successful message doesnt displayed");
     }
 
 

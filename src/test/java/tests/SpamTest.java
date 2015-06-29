@@ -16,8 +16,8 @@ public class SpamTest extends BaseTest {
 
         gmailLoginSteps.logIn(USER1_LOGIN, USER1_PASS).createLetter(USER2_LOGIN, LETTER_THEME, LETTER_BODY).logOut()
                 .switchAndAddNewUser().logIn(USER2_LOGIN, USER2_PASS).markLetterAsSpam().logOut().addUser().logIn(USER1_LOGIN, USER1_PASS)
-                .createLetter(USER2_LOGIN, LETTER_THEME, LETTER_BODY).logOut().addUser().logIn(USER2_LOGIN, USER2_PASS).goToSpamFolder();
-        Assert.assertTrue(gmailInboxSteps.verifyLetterPresent(), "there arent message in spam folder");
+                .createLetter(USER2_LOGIN, LETTER_THEME, LETTER_BODY).logOut().addUser().logIn(USER2_LOGIN, USER2_PASS).goToSpamFolder()
+        .verifyLetterPresent();
 
     }
 }

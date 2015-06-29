@@ -7,9 +7,7 @@ import com.epam.kiieu.steps.GmailThemeSteps;
 import org.bouncycastle.jcajce.provider.symmetric.ARC4;
 import org.openqa.selenium.WebDriver;
 
-/**
- * Created by nghia on 28.06.2015.
- */
+
 public abstract class BaseStep {
 
     protected WebDriver driver;
@@ -33,6 +31,7 @@ public abstract class BaseStep {
         this.driver = driver;
         this.gmailInboxPage = new GmailInboxPage(driver);
         this.gmailLoginPage = new GmailLoginPage(driver);
+        this.gmailThemePage = new GmailThemePage(driver);
 
     }
 
