@@ -14,7 +14,7 @@ public class Constants {
     public static final String LETTER_THEME = "aasd";
     public static final String LETTER_BODY = "asdas";
 
-    public static final String FILE_NAME = "";
+    public static final String FILE_NAME = "test.txt";
 
 
 }

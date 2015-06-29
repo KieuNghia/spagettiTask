@@ -5,6 +5,8 @@ import com.epam.kiieu.utils.Constants;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 
+import static com.epam.kiieu.utils.Constants.*;
+
 /**
  * Created by nghia on 28.06.2015.
  */
@@ -22,7 +24,7 @@ public class FilePathRobot {
             String path = System.getProperty("user.dir");
             Robot robot = new Robot();
             robot.delay(2000);
-            String message = (path +"\\"+ Constants.FILE_NAME.toLowerCase());
+            String message = (path +"\\"+ FILE_NAME.toLowerCase());
             for (int i = 0; i < message.length(); i++) {
                 int c = (int)(message.charAt(i));
                 robot.delay(20);

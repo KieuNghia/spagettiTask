@@ -15,10 +15,18 @@ public class GmailLoginPage extends BasePage {
     public final String PASSWORD_FIELD = "//input[@id = 'Passwd']";
     public final String OK_BUTTON = "//input[@id='signIn']";
     public final String NEXT_BUTTON = "//input[@id='next']";
+    public final String SWITCH_ACCOUNT = "//a[@id = 'account-chooser-link']";
+    public final String ADD_ACCOUNT = "//a[@id = 'account-chooser-add-account']";
 
     public GmailLoginPage(WebDriver driver){
         super(driver);
     }
+
+    @FindBy(xpath = SWITCH_ACCOUNT)
+    private WebElement switchAccount;
+
+    @FindBy(xpath = ADD_ACCOUNT)
+    private WebElement addAcoountButoon;
 
     @FindBy(xpath = LOGIN_FIELD)
     private WebElement loginField;
@@ -31,6 +39,14 @@ public class GmailLoginPage extends BasePage {
 
     @FindBy(xpath = NEXT_BUTTON)
     private WebElement nextButton;
+
+    public WebElement getSwitchAccount() {
+        return switchAccount;
+    }
+
+    public WebElement getAddAcoountButoon() {
+        return addAcoountButoon;
+    }
 
     public WebElement getLoginField() {
         return loginField;

@@ -19,11 +19,13 @@ public class GmailInboxPage extends BasePage {
         super(driver);
     }
 
-    public final String LETTER_TO_FIELD = "//textarea[@aria-label  = 'Кому']";
-    public final String LETTER_SUBJECT_FIELD = "//input[@placeholder = 'Тема']";
-    public final String LETTER_BODY_FIELD = "//div[@aria-label = 'Тело письма']";
-    public final String LETTER_SEND_BUTTON = "//div[text() = 'Отправить']";
+    public final String LETTER_TO_FIELD = "//textarea[@aria-label  = 'РљРѕРјСѓ']";
+    public final String LETTER_SUBJECT_FIELD = "//input[@placeholder = 'РўРµРјР°']";
+    public final String LETTER_BODY_FIELD = "//div[@aria-label = 'РўРµР»Рѕ РїРёСЃСЊРјР°']";
+    public final String LETTER_SEND_BUTTON = "//div[text() = 'РћС‚РїСЂР°РІРёС‚СЊ']";
     public final String LETTER_ADD_FILE_BUTTON = "//div[@command='Files']//div[@id]";
+    public final String LETTER_SENT_MESSAGE = "//div[@class = 'vh']";
+    public final By LETTER_FILE_UPLOAD_PROGRESS_BAR = xpath("//div[@role='progressbar']");
 
 
     public final String CREATE_MAIL_BUTTON = "(//div[@role='button'])[6]";
@@ -31,10 +33,14 @@ public class GmailInboxPage extends BasePage {
     public final String SPAM_FOLDER = "(//div[@id]/div/div[1]/span/a)[8]";
     public final String POPUP_MENU = "(//a[@aria-haspopup='true'])[3]";
     public final String EXIT_BUTTON = "//div[2]/div[3]/div[2]/a";
-    public final String SETTINGS_BUTTON = "//div[@aria-label = 'Настройки']";
-    public final String THEME_BUTTON = "//div[text() ='Темы']";
-    public final String SEND_TO_SPAM = "//div[@aria-label = 'В спам!']";
+    public final String SETTINGS_BUTTON = "//div[contains(@role,'button') and (@title='РќР°СЃС‚СЂРѕР№РєРё')]";
+    public final String THEME_BUTTON = "//div[@id and @role='menu']//div[9]/div";
+    public final String SEND_TO_SPAM = "(//div[2]/div[1]/div/div[2]/div[2]/div/div)[1]";
     public final String STARRED_BUTTON = "(//span/a)[2]";
+
+
+    @FindBy(xpath = LETTER_SENT_MESSAGE)
+    private WebElement messageSentPopUp;
 
     @FindBy(xpath = STARRED_BUTTON)
     private WebElement starredButton;
@@ -78,6 +84,10 @@ public class GmailInboxPage extends BasePage {
 
     @FindBy(xpath = EXIT_BUTTON)
     private WebElement exitButton;
+
+    public WebElement getMessageSentPopUp() {
+        return messageSentPopUp;
+    }
 
     public WebElement getStarredButton() {
         return starredButton;

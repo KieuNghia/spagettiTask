@@ -1,4 +1,4 @@
-package tests;
+package base;
 
 import com.epam.kiieu.steps.GmailInboxSteps;
 import com.epam.kiieu.steps.GmailLoginSteps;
@@ -27,8 +27,8 @@ public class BaseTest {
         driver = webDriverFactory.getDriver("firefox");
         driver.get(Constants.URL);
         gmailLoginSteps = new GmailLoginSteps(driver);
-        gmailInboxSteps = new GmailInboxSteps(driver);
-        gmailThemeSteps = new GmailThemeSteps(driver);}
+
+        }
 
     @AfterTest
     public void quit() {

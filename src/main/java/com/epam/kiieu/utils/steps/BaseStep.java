@@ -2,6 +2,8 @@ package com.epam.kiieu.utils.steps;
 
 import com.epam.kiieu.pages.GmailInboxPage;
 import com.epam.kiieu.pages.GmailLoginPage;
+import com.epam.kiieu.pages.GmailThemePage;
+import com.epam.kiieu.steps.GmailThemeSteps;
 import org.bouncycastle.jcajce.provider.symmetric.ARC4;
 import org.openqa.selenium.WebDriver;
 
@@ -13,6 +15,7 @@ public abstract class BaseStep {
     protected WebDriver driver;
     protected GmailInboxPage gmailInboxPage;
     protected GmailLoginPage gmailLoginPage;
+    protected GmailThemePage gmailThemePage;
 
     public GmailLoginPage getGmailLoginPage() {
         return gmailLoginPage;

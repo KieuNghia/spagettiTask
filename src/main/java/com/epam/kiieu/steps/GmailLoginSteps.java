@@ -5,6 +5,8 @@ import com.epam.kiieu.utils.steps.BaseStep;
 import com.epam.kiieu.utils.waiters.Waiters;
 import org.openqa.selenium.WebDriver;
 
+import static com.epam.kiieu.utils.waiters.Waiters.*;
+
 /**
  * Created by nghia on 28.06.2015.
  */
@@ -18,14 +20,31 @@ public class GmailLoginSteps extends BaseStep {
 
     public GmailInboxSteps logIn(String userName, String password){
 
-        Waiters.waitForElementIsVisible(gmailLoginPage.getLoginField(),driver);
+        waitForElementIsVisible(gmailLoginPage.getLoginField(), driver);
         gmailLoginPage.getLoginField().sendKeys(userName);
         gmailLoginPage.getNextButton().click();
-        Waiters.waitForElementIsVisible(gmailLoginPage.getPasswordField(),driver);
+        waitForElementIsVisible(gmailLoginPage.getPasswordField(), driver);
         gmailLoginPage.getPasswordField().sendKeys(password);
         gmailLoginPage.getOkButton().click();
 
         return new GmailInboxSteps(driver);
+
+    }
+
+    public GmailLoginSteps switchAndAddNewUser(){
+
+        waitForElementIsVisible(gmailLoginPage.getSwitchAccount(), driver);
+        gmailLoginPage.getSwitchAccount().click();
+        gmailLoginPage.getAddAcoountButoon().click();
+        return this;
+
+    }
+
+    public GmailLoginSteps addUser(){
+
+        waitForElementIsVisible(gmailLoginPage.getAddAcoountButoon(), driver);
+        gmailLoginPage.getAddAcoountButoon().click();
+        return this;
 
     }
 
